@@ -13,7 +13,10 @@ The scripts and programs listed in this repository are made to be used for proje
 
 ###### Example usage:
 
-`chunky run sgRNA_representation_vers2.py -input /path/to/fastq/input/directory -output path/to/out/directory`
+```
 
+chunky run sgRNA_representation_vers2.py -input /path/to/fastq/input/directory -output path/to/out/directory`
+
+```
 
 
