@@ -13,9 +13,9 @@ A pipeline to analyze library complexity of sgRNA screens against a list of targ
 
 ####Requirements
 ----------------
-*chunkypipes  
-*bwa  
-*samtools  
+* chunkypipes  
+* bwa  
+* samtools  
 
 
 ####Generate sgRNA "genome"
