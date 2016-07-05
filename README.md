@@ -12,8 +12,8 @@
 #####sgRNA_representation_vers2.py requires the Python package chunkypipes.
 
 ###### Example usage:
-'''
-chunky run sgRNA_representation_vers2.py -input /path/to/fastq/input/directory -output path/to/out/directory
-'''
+
+'chunky run sgRNA_representation_vers2.py -input /path/to/fastq/input/directory -output path/to/out/directory'
+
 
 
