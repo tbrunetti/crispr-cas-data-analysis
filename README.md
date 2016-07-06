@@ -45,7 +45,14 @@ The path in the brackets will be empty if pipeline has never been configured or 
 ###### Example usage:
 
 ```
-chunky run sgRNA_representation_vers2.py -input </path/to/fastq/input/directory> -output <path/to/out/directory>
+chunky run sgRNA_representation_vers2.py -input </path/to/fastq/input/directory/> -output </path/to/out/directory/>
 ```
 
+#### Output Files
+-----------------
+For each FASTQ library analyzed sgRNA_representation_vers2.py outputs the following files:
+* SAM with SAI
+* sorted BAM with BAI
+* indexstats file from samtools
 
+It also outputs an additional file called sgRNA_library_complexities.txt that has a time stamp in the name.  This file is created each time the program is run and contains the name of all the libraries that were procressed and the number of different sgRNAs that were represented from the sgRNA genome.
