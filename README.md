@@ -26,6 +26,22 @@ The index files and the FASTA file should all be located in the same directory.
 
 ####Using the Pipeline
 ----------------------
+ChunkyPipes requires that every pipeline be installed and configured before it can be run.  Install and configure sgRNA_representation_vers2.py into ChunkyPipes:
+
+```
+chunky install sgRNA_representation_vers2.py
+chunky configure sgRNA_representation_vers2.py
+``` 
+This should prompt the user for some information in regards to the full path to the executable file for BWA and samtools as well as the full path to sgRNA-targeted-genome.fa
+
+```
+Full path to bwa executable [/path/to/bwa_executable]:
+Full path to samtools executable [/path/to/samtools_executable]:
+Full path to crispr-genome in a single fasta file [/path/to/sgRNA-targeted-genome.fa]:
+Configuration file successfully written.
+```
+The path in the brackets will be empty if pipeline has never been configured or it should have a path in the bracket of the most recent configuration of the pipeline.  Configuration only needs to be performed once unless any of these paths have been updated or changed, in which, the pipeline needs to be re-configured.
+
 ###### Example usage:
 
 ```
