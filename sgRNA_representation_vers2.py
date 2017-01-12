@@ -3,6 +3,7 @@
 import os
 from chunkypipes.components import *
 import subprocess
+import datetime
 
 class Pipeline(BasePipeline):
 
@@ -27,7 +28,7 @@ class Pipeline(BasePipeline):
 	def add_pipeline_args(self, parser):
 		parser.add_argument('-input', required=True, help='path to directory of all fastq files to analyze')
 		parser.add_argument('-output', required=True, help='path to output final results directory')
-	
+		#parser.add_argument('--spaceSaveMode', help='if this mode is used, SAM files will be deleted')	
 
 
 	def run_pipeline(self, pipeline_args, pipeline_config):
@@ -74,15 +75,18 @@ class Pipeline(BasePipeline):
 					)
 
 		#finds indexStats file generated from above and calculates the estimated number of sgRNA represented
+		filename=pipeline_args['output']+'sgRNA-library-complexities-'+str(time.strftime("%a-%d-%b-%Y_%H:%M:%S"))+'.txt'
+		f=open(filename, 'w')
 		for indexStats in os.listdir(pipeline_args['output']):
 			if indexStats[-14:]=='indexStats.txt':
 				print 'Calculating library complexity...lib_name='+str(indexStats)
-				with open(indexStats) as input:
-					total=0
+				total=0
+				with open(pipeline_args['output']+indexStats) as input:
 					for line in input:
 						line=line.split('\t')
 						if line[2]=='0' and line[3].rstrip('\n')=='0':
 							continue;
 						else:
 							total+=1
-			print 'The total number of sgRNAs represented in '+ str(indexStats)+' are '+str(total)
+				with open(filename, 'a+') as file:
+					file.write('The total number of sgRNAs represented in '+ str(indexStats)+' are '+str(total)+'\n')
